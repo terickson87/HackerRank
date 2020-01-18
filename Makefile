@@ -63,3 +63,9 @@ HelloWorld/HelloWorld: HelloWorld/HelloWorld.cpp
 
 InputOutput/InputOutput: InputOutput/InputOutput.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
+
+
+
+
+VariableSizedArrays/VariableSizedArrays: VariableSizedArrays/VariableSizedArrays.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
