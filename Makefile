@@ -60,12 +60,12 @@ CPPFLAGS := -Wall -pedantic-errors -Weffc++ -Wextra -Wsign-conversion -Werror -s
 
 Allbinaries := HelloWorld/HelloWorld InputOutput/InputOutput BasicDataTypes/BasicDataTypes \
 ConditionalStatements/ConditionalStatements ForLoop/ForLoop Functions/Functions \
-Arrays/Arrays VariableSizedArrays/VariableSizedArrays
+Arrays/Arrays VariableSizedArrays/VariableSizedArrays AttributeParser/AttributeParser
 
-.PHONY: all clean
-
+.PHONY: all
 all: $(Allbinaries)
 
+.PHONY: clean
 clean: 
 	rm -f $(Allbinaries)
 
