@@ -58,6 +58,12 @@ CPPFLAGS := -Wall -pedantic-errors -Weffc++ -Wextra -Wsign-conversion -Werror -s
 # $(BINDIR)/testDate: $(BUILDDIR)/testDate.o $(BUILDDIR)/Date.o
 #  	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $^
 
+.PHONY: all
+all: HelloWorld/HelloWorld InputOutput/InputOutput BasicDataTypes/BasicDataTypes \
+ConditionalStatements/ConditionalStatements ForLoop/ForLoop \
+ \
+ VariableSizedArrays/VariableSizedArrays
+
 HelloWorld/HelloWorld: HelloWorld/HelloWorld.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
@@ -70,12 +76,13 @@ BasicDataTypes/BasicDataTypes: BasicDataTypes/BasicDataTypes.cpp
 ConditionalStatements/ConditionalStatements: ConditionalStatements/ConditionalStatements.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
+ForLoop/ForLoop: ForLoop/ForLoop.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
 
 
 
 
-	
 
 VariableSizedArrays/VariableSizedArrays: VariableSizedArrays/VariableSizedArrays.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
