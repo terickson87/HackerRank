@@ -58,5 +58,8 @@ CPPFLAGS := -Wall -pedantic-errors -Weffc++ -Wextra -Wsign-conversion -Werror -s
 # $(BINDIR)/testDate: $(BUILDDIR)/testDate.o $(BUILDDIR)/Date.o
 #  	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $^
 
-HelloWorld: HelloWorld/HelloWorld.cpp
+HelloWorld/HelloWorld: HelloWorld/HelloWorld.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
+
+InputOutput/InputOutput: InputOutput/InputOutput.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
