@@ -82,7 +82,8 @@ ForLoop/ForLoop: ForLoop/ForLoop.cpp
 Functions/Functions: Functions/Functions.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
-
+Pointer/Pointer: Pointer/Pointer.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
 
 
