@@ -12,7 +12,7 @@ int main() {
     int nVals = 0;
     cin >> nVals;
 
-    int valsArray[nVals];
+    int* valsArray = new int[nVals];
     for(int iVal = 0; iVal < nVals; ++iVal){
         cin >> valsArray[iVal];
     }
@@ -24,5 +24,7 @@ int main() {
         }
     }
 
+    delete [] valsArray;
+    
     return 0;
 }
