@@ -68,7 +68,7 @@ all: $(Allbinaries)
 
 clean: 
 	rm -f $(Allbinaries)
-	
+
 HelloWorld/HelloWorld: HelloWorld/HelloWorld.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
@@ -94,4 +94,7 @@ Arrays/Arrays: Arrays/Arrays.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
 VariableSizedArrays/VariableSizedArrays: VariableSizedArrays/VariableSizedArrays.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
+
+AttributeParser/AttributeParser: AttributeParser/AttributeParser.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
