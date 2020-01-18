@@ -67,6 +67,15 @@ InputOutput/InputOutput: InputOutput/InputOutput.cpp
 BasicDataTypes/BasicDataTypes: BasicDataTypes/BasicDataTypes.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
+ConditionalStatements/ConditionalStatements: ConditionalStatements/ConditionalStatements.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
+
+
+
+
+
+
+	
 
 VariableSizedArrays/VariableSizedArrays: VariableSizedArrays/VariableSizedArrays.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
