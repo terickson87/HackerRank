@@ -1,1 +1,9 @@
 *.o
+HelloWorld/HelloWorld
+InputOutput/InputOutput
+BasicDataTypes/BasicDataTypes
+ConditionalStatements/ConditionalStatements
+ForLoop/ForLoop
+Functions/Functions
+Arrays/Arrays
+VariableSizedArrays/VariableSizedArrays
