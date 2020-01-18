@@ -60,7 +60,7 @@ CPPFLAGS := -Wall -pedantic-errors -Weffc++ -Wextra -Wsign-conversion -Werror -s
 
 .PHONY: all
 all: HelloWorld/HelloWorld InputOutput/InputOutput BasicDataTypes/BasicDataTypes \
-ConditionalStatements/ConditionalStatements ForLoop/ForLoop \
+ConditionalStatements/ConditionalStatements ForLoop/ForLoop Functions/Functions \
  \
  VariableSizedArrays/VariableSizedArrays
 
@@ -77,6 +77,9 @@ ConditionalStatements/ConditionalStatements: ConditionalStatements/ConditionalSt
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
 ForLoop/ForLoop: ForLoop/ForLoop.cpp
+	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
+
+Functions/Functions: Functions/Functions.cpp
 	$(CXX) -o $@ $(GDBFLAG) $(CPPFLAGS) $<
 
 
