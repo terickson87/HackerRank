@@ -14,45 +14,71 @@
 
 class Tag {
    private:
-   std::string m_Attribute;
+   std::list<std::string> m_AttributeList;
    std::string m_TagName;
-   Tag* m_Parent;
-
-   public:
-   Tag() : m_Attribute(""), m_TagName(""), m_Parent(nullptr) { }
+   std::shared_ptr<Tag> m_Parent;
    Tag(const Tag& other)
-   : m_Attribute(other.getAttribute()),
+   : m_AttributeList(other.getAttributeList()),
    m_TagName(other.getTagName()),
    m_Parent(other.getParent()) { }
+
    Tag& operator=(const Tag& other) {
       if (this != &other) {
-         m_Attribute = other.getAttribute();
+         m_AttributeList = other.getAttributeList();
          m_TagName = other.getTagName();
          m_Parent = other.getParent();
          return *this;
       }
    }
-   ~Tag();
+   /* Tag(const Tag& other) {}
+   Tag& operator=(const Tag& other) {return *this;} */
 
-   std::string getAttribute() const {return m_Attribute;}
+   public:
+   Tag() : m_AttributeList(), m_TagName(""), m_Parent(nullptr) { }
+   ~Tag() {}
+
+   std::list<std::string> getAttributeList() const {return m_AttributeList;}
    std::string getTagName() const {return m_TagName;}
-   Tag* getParent() const {return m_Parent;}
+   std::shared_ptr<Tag> getParent() const {return m_Parent;}
 
-   void setAttribute(const std::string& attribute) {m_Attribute=attribute;}
-   void setTagName(const std::string& tagName) {m_Attribute=tagName;}
-   void setParent(Tag* const parent) {m_Parent=parent;}
+   void setAttribute(const std::list<std::string>& attributeList) {m_AttributeList=attributeList;}
+   void setTagName(const std::string& tagName) {m_TagName=tagName;}
+   void setParent(std::shared_ptr<Tag> parent) {m_Parent=parent;}
 };
 
-void processLine(std::istream& localCin, std::list<Tag*>& parentList) {
+void processLine(std::istream& localCin, std::list<std::shared_ptr<Tag>>& parentList) {
    std::string thisLine;
-   std::getline(std::cin, thisLine);
    char thisChar;
+   std::string thisWord;
+
+   std::getline(std::cin, thisLine);
    localCin.get(thisChar);
    assert('<' == thisChar);
 
+   Tag thisTag;
+   std::shared_ptr<Tag> pTag( new Tag() );
+   pTag->setParent(parentList.back());
+   parentList.push_back(pTag);
+
    std::istringstream iss (thisLine);
    std::string tag;
+   iss >> tag;
+   thisTag.setTagName(tag);
+
+   iss >> thisWord;
+   if (thisWord == ">") {
+      /* code */
+   }
+   
+
+   std::ostringstream oss;
+
+   
+
+
    std::string attribute;
+   
+
 }
 
 int main() {
@@ -62,7 +88,7 @@ int main() {
    std::cin >> numberOfQueries;
    
    std::string thisLine;
-   std::list<Tag*> parentList;
+   std::list<std::shared_ptr<Tag>> parentList;
    parentList.push_back(nullptr);
    for (size_t i = 0; i < numberOfTagLines; ++i) {
       processLine(std::cin, parentList);
